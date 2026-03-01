@@ -72,7 +72,7 @@ const universityIndex = {
     image:
       "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1400&q=60",
     about:
-      "Mälardalen University has strong links to industry and a practical approach to education, offering programs designed around employability and real projects.",
+      "Mälardalen University has strong links with industry and a practical approach to education, offering programs designed around employability and real projects.",
   },
   "university-of-toronto": {
     name: "University of Toronto",
@@ -94,6 +94,14 @@ const universityIndex = {
   },
 };
 
+// ✅ Updated with your real form link
+const FORM_BASE_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeSCpf7wKbdTT42orTdN_7EhGr-2EYPet4cF50exd3FLYVBlA/viewform";
+
+function buildApplyUrl() {
+  return FORM_BASE_URL;
+}
+
 export default function UniversityDetails() {
   const { slug } = useParams();
   const uni = universityIndex[slug];
@@ -103,7 +111,7 @@ export default function UniversityDetails() {
       <div className="p-6 md:p-10">
         <h2 className="text-2xl font-bold">University not found</h2>
         <p className="text-gray-600 mt-2">
-          Please go back and choose a university from the list.
+          Slug received: <span className="font-semibold">{slug}</span>
         </p>
         <Link to="/" className="inline-block mt-4 text-blue-700 font-semibold">
           ← Back to Home
@@ -112,11 +120,24 @@ export default function UniversityDetails() {
     );
   }
 
+  const applyUrl = buildApplyUrl();
+
   return (
     <div className="p-6 md:p-10 max-w-5xl mx-auto">
-      <Link to="/" className="text-blue-700 font-semibold">
-        ← Back
-      </Link>
+      <div className="flex items-center justify-between">
+        <Link to="/" className="text-blue-700 font-semibold">
+          ← Back
+        </Link>
+
+        <a
+          href={applyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-blue-700 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-800 transition"
+        >
+          Apply now
+        </a>
+      </div>
 
       <div className="mt-6 overflow-hidden rounded-2xl border bg-white shadow-sm">
         <div className="h-56 md:h-72 bg-gray-200">
@@ -146,6 +167,20 @@ export default function UniversityDetails() {
               <li>Prepare documents (CV, SOP, transcripts)</li>
               <li>Apply and track your application</li>
             </ul>
+
+            <div className="mt-4">
+              <a
+                href={applyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-blue-700 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-800 transition"
+              >
+                Apply now
+              </a>
+              <p className="text-xs text-gray-500 mt-2">
+                The form opens in a new tab.
+              </p>
+            </div>
           </div>
         </div>
       </div>
