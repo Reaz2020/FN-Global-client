@@ -1,5 +1,6 @@
 // pages/HomePage.jsx
 import { Link } from "react-router-dom";
+import Banner from "../componentsForHome/Banner";
 
 const countries = [
   {
@@ -143,7 +144,15 @@ function UniCard({ uni }) {
 
 export default function HomePage() {
   return (
-    <div className="p-6 md:p-10">
+  <div>
+
+    <div>
+      <Banner></Banner>
+    </div>
+
+
+
+<div className="p-6 md:p-10">
       <div className="mb-8">
         <h2 className="text-3xl font-bold mb-2">Welcome to FN Global</h2>
         <p className="text-gray-600">
@@ -168,5 +177,8 @@ export default function HomePage() {
         ))}
       </div>
     </div>
+
+
+  </div>
   );
 }

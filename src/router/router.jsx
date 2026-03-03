@@ -3,6 +3,8 @@ import HomeLayout from "../layouts/HomeLayout.jsx";
 import HomePage from "../pages/HomePage.jsx";
 import UniversityDetails from "../pages/UniversityDetails.jsx";
 import AddCustomer from "../componentsForHome/AddCustomer.jsx";
+import Contact from "../pages/Contact.jsx";
+import About from "../pages/About.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +14,8 @@ export const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "universities/:slug", element: <UniversityDetails /> },
       { path: "add-customer", element: <AddCustomer /> },
+      { path: "contact", element: <Contact /> }, // child of HomeLayout
+      { path: "about", element: <About /> },
     ],
   },
 ]);

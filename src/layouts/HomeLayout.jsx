@@ -10,8 +10,7 @@ export default function HomeLayout() {
       {/* Top Navigation */} 
       <TopNavbar />
 
-      {/* Banner */}
-      <Banner />
+   
 
       {/* Page Content */}
       <main className="flex-1 p-4 overflow-auto">
